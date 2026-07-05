@@ -1,23 +1,29 @@
 # Terminal Workbench for Windows Terminal
 
-A calm, dense, high-contrast theme for Windows Terminal — graphite backgrounds, restrained ANSI-style accents, and matching window chrome, in dark and light modes. Not retro green-on-black novelty: the interface stays quiet and color is spent only on signal.
+[![Latest release](https://img.shields.io/github/v/release/Real-Fruit-Snacks/terminal-workbench-windows-terminal)](https://github.com/Real-Fruit-Snacks/terminal-workbench-windows-terminal/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A port of the [Terminal Workbench](https://github.com/Real-Fruit-Snacks/terminal-workbench) Obsidian theme, built from its [portable design spec](https://github.com/Real-Fruit-Snacks/terminal-workbench/blob/main/docs/THEME-SPEC.md).
+A calm, dense, high-contrast theme for Windows Terminal. Graphite backgrounds, restrained ANSI-style accents, and matching window chrome, in dark and light modes. The interface stays quiet; color is spent only on signal.
 
-## What's included
+Terminal Workbench is a port of the [Terminal Workbench](https://github.com/Real-Fruit-Snacks/terminal-workbench) Obsidian theme and follows its [portable design specification](https://github.com/Real-Fruit-Snacks/terminal-workbench/blob/main/docs/THEME-SPEC.md).
 
-[`terminal-workbench.json`](terminal-workbench.json) contains:
+## Contents
 
-- **Terminal Workbench** — dark color scheme
-- **Terminal Workbench Light** — light color scheme
-- Matching **window themes** (tab row / chrome) for both modes
+[`terminal-workbench.json`](terminal-workbench.json) provides four entries:
 
-## Install
+| Entry | Type | Description |
+|---|---|---|
+| Terminal Workbench | Color scheme | Dark palette: graphite surfaces, mint primary accent |
+| Terminal Workbench Light | Color scheme | Light palette with darkened accents for contrast |
+| Terminal Workbench | Window theme | Dark tab row and window chrome |
+| Terminal Workbench Light | Window theme | Light tab row and window chrome |
 
-1. Open Windows Terminal → Settings (<kbd>Ctrl</kbd>+<kbd>,</kbd>) → **Open JSON file**.
+## Installation
+
+1. Open Windows Terminal, go to Settings (<kbd>Ctrl</kbd>+<kbd>,</kbd>), and select **Open JSON file**.
 2. Copy both entries from the `schemes` array of [`terminal-workbench.json`](terminal-workbench.json) into the `schemes` array of your `settings.json`.
-3. Copy both entries from the `themes` array into the top-level `themes` array of your `settings.json` (create the array if it doesn't exist).
-4. Activate the dark theme:
+3. Copy both entries from the `themes` array into the top-level `themes` array of your `settings.json`, creating the array if it does not exist.
+4. Activate the theme:
 
 ```jsonc
 {
@@ -32,11 +38,11 @@ A port of the [Terminal Workbench](https://github.com/Real-Fruit-Snacks/terminal
 }
 ```
 
-Color schemes apply to open tabs immediately; the window theme (tab row chrome) applies after closing and reopening Windows Terminal.
+Color schemes apply to open tabs immediately. The window theme applies after Windows Terminal is closed and reopened.
 
 ### Light mode
 
-Swap both names for their `Light` counterparts:
+Replace both names with their light counterparts:
 
 ```jsonc
 "theme": "Terminal Workbench Light",
@@ -75,12 +81,17 @@ Swap both names for their `Light` counterparts:
 | white | `#C8D5CF` | | brightWhite | `#F5F7F4` |
 | cursor | `#007A4D` | | selection | `#CBE2D8` |
 
-## Notes
+## Design notes
 
-- The dark selection color is deliberately quiet (accent at ~20% over the background, per the design spec). If you prefer a more visible selection, change `selectionBackground` to `#204836`.
-- Normal ANSI colors are the spec's exact accent tokens; bright variants are the same hues lifted ~12% in dark mode and deepened ~10% in light mode, so bold text stays distinguishable without turning the palette into a rainbow.
-- The ANSI blue slot (the one color the spec doesn't define) uses a steel blue that sits between the cyan accent and the violet keyword color.
+- Normal ANSI colors are the specification's exact accent tokens. Bright variants are the same hues lifted approximately 12% in dark mode and deepened approximately 10% in light mode, keeping bold text distinguishable without expanding the palette.
+- The ANSI blue slot, the one color the specification does not define, uses a steel blue positioned between the cyan accent and the violet keyword color.
+- The dark selection color is deliberately quiet (primary accent at roughly 20% over the background). For a more visible selection, set `selectionBackground` to `#204836`.
+- Foreground-on-background contrast is 15.4:1 in dark mode and approximately 13:1 in light mode, meeting WCAG AA for body text in both.
+
+## Related projects
+
+- [Terminal Workbench for Obsidian](https://github.com/Real-Fruit-Snacks/terminal-workbench) — the original theme and its design specification.
 
 ## License
 
-[MIT](LICENSE)
+Released under the [MIT License](LICENSE).
